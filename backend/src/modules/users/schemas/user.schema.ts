@@ -28,7 +28,22 @@ export class User {
   region: string;
 
   @Prop()
+  city: string;
+
+  @Prop()
   avatarUrl: string;
+
+  @Prop()
+  voiceSampleUrl: string;
+
+  @Prop()
+  bio: string;
+
+  @Prop({ type: [String] })
+  specializations: string[];
+
+  @Prop({ type: Number, default: 0 })
+  rating: number;
 
   async validatePassword(password: string): Promise<boolean> {
     return bcrypt.compare(password, this.password);
