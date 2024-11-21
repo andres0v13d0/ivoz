@@ -1,9 +1,13 @@
 import { Module } from '@nestjs/common';
-import { OauthtokensController } from './oauthtokens.controller';
-import { OauthtokensService } from './oauthtokens.service';
+import { MongooseModule } from '@nestjs/mongoose';
+import { OAuthTokensController } from './oauthtokens.controller';
+import { OAuthTokensService } from './oauthtokens.service';
+import { OAuthToken, OAuthTokenSchema } from './schemas/oauthtoken.schema';
 
 @Module({
-  controllers: [OauthtokensController],
-  providers: [OauthtokensService]
+  imports: [MongooseModule.forFeature([{ name: OAuthToken.name, schema: OAuthTokenSchema }])],
+  controllers: [OAuthTokensController],
+  providers: [OAuthTokensService],
+  exports: [OAuthTokensService],
 })
-export class OauthtokensModule {}
+export class OAuthTokensModule {}

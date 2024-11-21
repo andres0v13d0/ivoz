@@ -1,4 +1,4 @@
-import { IsString, IsDate, IsOptional } from 'class-validator';
+import { IsString, IsDate, IsOptional, IsBoolean } from 'class-validator';
 
 export class CreateOAuthTokenDto {
   @IsString()
@@ -10,9 +10,12 @@ export class CreateOAuthTokenDto {
   @IsString()
   refreshToken: string;
 
-  @IsOptional()
   @IsDate()
-  expiresAt?: Date;
+  expiresAt: Date;
+
+  @IsOptional()
+  @IsBoolean()
+  needsRenewal?: boolean;
 }
 
 export class UpdateOAuthTokenDto {
@@ -31,4 +34,8 @@ export class UpdateOAuthTokenDto {
   @IsOptional()
   @IsDate()
   expiresAt?: Date;
+
+  @IsOptional()
+  @IsBoolean()
+  needsRenewal?: boolean;
 }

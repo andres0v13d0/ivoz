@@ -7,10 +7,10 @@ export class CreateOrderDto {
   @IsString()
   talentId: string;
 
-  @IsEnum(['pending', 'in_progress', 'completed'])
+  @IsEnum(['pending', 'in_progress', 'completed', 'cancelled'])
   status: string;
 
-  @IsEnum(['pending', 'paid', 'held', 'released'])
+  @IsEnum(['pending', 'paid', 'held', 'released', 'refunded'])
   paymentStatus: string;
 
   @IsBoolean()
@@ -26,32 +26,36 @@ export class CreateOrderDto {
   @IsOptional()
   @IsDate()
   completedAt?: Date;
+
+  @IsOptional()
+  @IsDate()
+  cancelledAt?: Date;
 }
 
 export class UpdateOrderDto {
   @IsOptional()
   @IsString()
-  clientId: string;
+  clientId?: string;
 
   @IsOptional()
   @IsString()
-  talentId: string;
+  talentId?: string;
 
   @IsOptional()
-  @IsEnum(['pending', 'in_progress', 'completed'])
-  status: string;
+  @IsEnum(['pending', 'in_progress', 'completed', 'cancelled'])
+  status?: string;
 
   @IsOptional()
-  @IsEnum(['pending', 'paid', 'held', 'released'])
-  paymentStatus: string;
+  @IsEnum(['pending', 'paid', 'held', 'released', 'refunded'])
+  paymentStatus?: string;
 
   @IsOptional()
   @IsBoolean()
-  approvedByClient: boolean;
+  approvedByClient?: boolean;
 
   @IsOptional()
   @IsNumber()
-  amount: number;
+  amount?: number;
 
   @IsOptional()
   @IsDate()
@@ -60,4 +64,8 @@ export class UpdateOrderDto {
   @IsOptional()
   @IsDate()
   completedAt?: Date;
+
+  @IsOptional()
+  @IsDate()
+  cancelledAt?: Date;
 }

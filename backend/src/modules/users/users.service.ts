@@ -7,17 +7,17 @@ import { CreateUserDto, UpdateUserDto } from './dto/create-user.dto';
 @Injectable()
 export class UsersService {
   constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
-  
+
   async findId(email: string): Promise<string | undefined> {
     const user = await this.userModel.findOne({ email }).exec();
     return user?._id?.toString() ?? undefined;
   }
-  
+
   async findUserByEmail(email: string): Promise<UserDocument | undefined> {
     const user = await this.userModel.findOne({ email }).select('email password').exec();
     return user ?? undefined;
   }
-  
+
   async create(createUserDto: CreateUserDto): Promise<User> {
     const existingUser = await this.findUserByEmail(createUserDto.email);
 
@@ -37,7 +37,7 @@ export class UsersService {
     return user;
   }
 
-  async update(userId: string, updateUserDto: Partial<UpdateUserDto>, authenticatedUserId: string): Promise<User> {
+  async update(userId: string, updateUserDto: UpdateUserDto, authenticatedUserId: string): Promise<User> {
     if (userId !== authenticatedUserId) throw new ForbiddenException('You are not authorized to update this profile');
 
     const allowedFields = ['firstName', 'lastName', 'avatarUrl', 'country', 'region', 'city', 'bio', 'specializations', 'rating'];

@@ -29,7 +29,7 @@ export class UsersController {
   @Patch(':id')
   async update(
     @Param('id') id: string,
-    @Body() updateUserDto: Partial<UpdateUserDto>,
+    @Body() updateUserDto: UpdateUserDto,
     @Req() req: any
   ) {
     const authenticatedUserId = req.user['userId'];

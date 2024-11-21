@@ -39,7 +39,11 @@ export class OrdersController {
 
   @UseGuards(JwtAuthGuard)
   @Patch(':id/status')
-  async updateOrderStatus(@Param('id') orderId: string, @Body('status') status: string, @Req() req: AuthenticatedRequest) {
+  async updateOrderStatus(
+    @Param('id') orderId: string,
+    @Body('status') status: string,
+    @Req() req: AuthenticatedRequest
+  ) {
     const authenticatedUserId = req.user.id;
     return this.ordersService.updateOrderStatus(orderId, status, authenticatedUserId);
   }
@@ -49,5 +53,14 @@ export class OrdersController {
   async approveDelivery(@Param('id') orderId: string, @Req() req: AuthenticatedRequest) {
     const authenticatedUserId = req.user.id;
     return this.ordersService.approveDelivery(orderId, authenticatedUserId);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Patch(':id/payment-status')
+  async updatePaymentStatus(
+    @Param('id') orderId: string,
+    @Body('paymentStatus') paymentStatus: string,
+  ) {
+    return this.ordersService.updatePaymentStatus(orderId, paymentStatus);
   }
 }
