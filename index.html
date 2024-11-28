@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iivoz</title>
+    <style>
+        @font-face {
+            font-family: 'normal-font';
+            src: url(Ubuntu/Ubuntu-Regular.ttf);
+        }
+        @font-face {
+            font-family: 'logo-font';
+            src: url(EB_Garamond/EBGaramond-Italic.ttf) ;
+        }
+
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: 'normal-font';
+        }
+        
+
+        body{
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .slogan-cont{
+            height: 65vh;
+            background-image: url(fondo.webp);
+            z-index: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100vw;
+        }
+
+        .slogan-cont::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 65vh;
+            background-color: rgba(0, 0, 0, 0.918);
+            z-index: 1;
+            overflow-x: hidden;
+        }
+
+        .slogan-cont .logo, .slogan-cont .logo2{
+            position: absolute;
+            z-index: 3;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .slogan-cont .logo{
+            top: 0;
+            background-color: black;
+            width: 100vw;
+        }
+
+        .slogan-cont .logo2{
+            top: 100px;
+        }
+
+        .logo img, .logo2 img{
+            width: auto;
+            height: 100%;
+        }
+
+        .logo h1, .logo2 h1{
+            color: white;
+            margin-left: -17px;
+            font-family: 'logo-font';
+            font-size: 35px;
+        }
+
+        .slogan-text{
+            position: absolute;
+            z-index: 3;
+            color: white;
+            text-align: center;
+            width: 70vw;
+            font-size: 25px;
+            font-weight: normal;
+        }
+
+        .slogan-text p{
+            font-size: 30px;
+            font-weight: bold;
+            color: rgb(0, 216, 0);
+            margin-top: -150px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .slogan-cont #register{
+            position: absolute;
+            z-index: 3;
+            top: 460px;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding: 15px;
+            font-size: 20px;
+            width: 200px;
+            border-radius: 10px;
+            color: white;
+            background-color: rgb(0, 216, 0);
+            border: none;
+        }
+
+        .logo-cont{
+            display: flex;
+            height: 900px;
+            width: 100vw;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .logo-cont h1{
+            font-family: 'logo-font', sans-serif;
+            font-weight: bold;
+            font-size: 650px;
+            color: white;
+            margin-top: -210px;
+        }
+
+        .logo-cont #text1{
+            -webkit-text-stroke: 1px rgb(0, 216, 0);
+            z-index: 1;
+        }
+
+        .logo-cont #text2{
+            -webkit-text-stroke: 1px rgb(62, 62, 62);
+            margin-left: -90px;
+            z-index: 0;
+        }
+
+        .logo-cont .img-cont{
+            position: absolute;
+            z-index: 5;
+            width: 100vw;
+            height: 520px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .img-cont div{
+            width: 440px;
+            border-radius: 20px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 4;
+            background-repeat: no-repeat;
+            background-size: cover;
+            flex-direction: column;
+        }
+
+        .img-cont .cont-text #title-text{
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .img-cont .cont-text #body-text{
+            text-align: center;
+            margin-top: 15px;
+            font-size: 20px;
+            padding: 0 30px 0 30px;
+        }
+
+
+        .img-cont .cont-text::before{
+            content: '';
+            position: absolute;
+            z-index: 5;
+            background-color: rgba(0, 0, 0, 0.703);
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        .img-cont p{
+            z-index: 10;
+            color: white;
+        }
+
+        .img-cont #img1{
+            background-image: url('fondo.jpg');
+            top: 100px;
+            left: 30px;
+            right: 0;
+            bottom: 0;
+        }
+
+        .img-cont #img2{
+            background-image: url('fondo.jpg');
+            top: 130px;
+            left: 250px;
+            right: 0;
+            bottom: 0;
+        }
+
+        .img-cont #img3{
+            background-image: url('fondo.jpg');
+            top: 20px;
+            left: 30px;
+            right: 0;
+            bottom: 0;
+        }
+
+        .img-cont #img4{
+            background-image: url('fondo.jpg');
+            top: 250px;
+            left: 30px;
+            right: 0;
+            bottom: 0;
+        }
+
+        .logo-cont .message-cont{
+            z-index: 20;
+            width: 82vw;
+            height: 200px;
+        }
+
+        .message-cont #message-title{
+            font-size: 27px;
+            margin-bottom: 15px;
+        }
+
+        .message-cont #message-body{
+            font-size: 20px;
+        }
+
+        .services-cont{
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .services-cont #services-title{
+            margin-top: 80px;
+            margin-bottom: 80px;
+            font-weight: normal;
+        }
+
+        .services-cont .services-imgs{
+            display: grid;
+            grid-template-rows: repeat(auto-fit, minmax(100px, 1fr)); 
+            gap: 20px;
+            width: 250px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .services-imgs .items{
+            border-radius: 50px;
+            background-color: white;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+        }
+
+        .items img{
+            width: 60%;
+            margin-top: 30px;
+        }
+
+        .items p{
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .services-cont #services-message{
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .services-cont #services-register{
+            margin-top: 40px;
+            margin-bottom: 80px;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding: 30px;
+            font-size: 20px;
+            width: 250px;
+            border-radius: 10px;
+            color: black;
+            background-color: rgb(0, 216, 0);
+            border: none;
+        }
+
+        .contract{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(234, 234, 234);
+            color: rgb(51, 51, 51);
+        }
+
+        .contract h1{
+            margin-top: 80px;
+            margin-bottom: 80px;
+        }
+
+        .contract .contract-logo h1{
+            font-family: 'logo-font', sans-serif;
+            font-weight: bold;
+            font-size: 550px;
+            color: white;
+            margin-top: -190px;
+        }
+
+        .contract-logo #title1{
+            color: rgb(0, 216, 0);
+            z-index: 1;
+        }
+
+        .contract-logo #title2{
+            color: rgb(62, 62, 62);
+            margin-left: -90px;
+            z-index: 0;
+        }
+
+        .contract-logo{
+            display: flex;
+            height: 700px;
+            width: 100vw;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .contract-logo img{
+            position: absolute;
+            z-index: 50;
+            width: 350px;
+            margin-top: 55px;
+            border-radius: 60% 50% 50%;
+        }
+
+        .contract #contract-message{
+            width: 70vw;
+            margin-top: -250px;
+            font-size: 20px;
+        }
+
+        .contract .list {
+            list-style-type: none;
+            padding: 0;
+            font-size: 20px;
+            margin-left: -60px;
+            margin-top: 20px;
+        }
+
+        .contract .item::before {
+            content: "✓ ";
+            color: rgb(0, 216, 0);
+            font-weight: bold;
+        }
+
+        .contract #listen-voice{
+            margin-top: 30px;
+            margin-bottom: 50px;
+            font-weight: bold;
+            padding: 20px;
+            font-size: 20px;
+            width: 70vw;
+            border-radius: 10px;
+            color: black;
+            background-color: rgb(0, 216, 0);
+            border: none;
+        }
+
+        .contract.locutor{
+            background-color: white;
+        }
+
+        .contract.locutor .contract-logo #title1{
+            -webkit-text-stroke: 1px rgb(0, 216, 0);
+            color: white;
+        }
+
+        .contract.locutor .contract-logo #title2{
+            -webkit-text-stroke: 1px rgb(62, 62, 62);
+            color: white;
+        }
+
+        .contract.locutor .contract-logo img{
+            border-radius: 50% 30% 30% 50%;
+            margin-top: 50px;
+            height: 250px;
+            width: auto;
+        }
+
+        footer{
+            background-color: black;
+            height: 250px;
+            color: white;
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        footer .social-media{
+            display: flex;
+            width: 100vw;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 120px;
+            width: 80vw;
+            border-bottom: 1px solid gray;
+            margin-bottom: 60px;
+        }
+
+        .social-media img{
+            height: 25%;
+            width: auto;
+            cursor: pointer;
+        }
+
+        button{
+            cursor: pointer;
+        }
+
+        @keyframes fade-in-left {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .fade-in-left {
+            animation: fade-in-left 0.5s ease-out;
+        }
+
+        .top-locutores{
+            height: 500px;
+        }
+
+        .testimony-cont{
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .testimony-cont h1{
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .testimony-cont img{
+            height: 370px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slogan-cont">
+        <div class="logo">
+            <img src="fondo.png" alt="logo">
+            <h1>voz</h1>
+        </div>
+        <span class="slogan-text"><p>DALE VOZ A TU NEGOCIO CON VOCES PROFESIONALES</p>Conecta con locutores profesionales y transforma tu negocio con audios que te ayudan a vender más</span>
+        <button id="register" onclick="register()">Crear Cuenta</button>
+    </div>
+
+    <div class="contract">
+        <h1>Escucha los locutores</h1>
+        <div class="contract-logo">
+            <h1 id="title1">i</h1>
+            <h1 id="title2">i</h1>
+            <img src="locutor.jpg" alt="locutor">
+        </div>
+        <p id="contract-message">Aquí puedes escuchar la voz de <b>varios locutores</b> y elegir la que <b>más te guste</b></p>
+        <ul class="list">
+            <li class="item" id="item1">Incrementa tus ventas</li>
+            <li class="item" id="item2">Dale voz a tu marca</li>
+            <li class="item" id="item3">Destaca entre la competencia</li>
+        </ul>
+        <button id="listen-voice" onclick="listen()">¡Escuchar muestras de voz!</button>
+    </div>
+    
+    <section class="top-locutores">
+        <div class="item-locutor">
+            <img src="" alt="">
+            <p>Nombre</p>
+        </div>
+    </section>
+    
+    <div class="logo-cont" style="display: none;">
+        <h1 id="text1">i</h1>
+        <h1 id="text2">i</h1>
+        <div class="img-cont">
+            <div id="img3" class="cont-text">
+                <p id="title-text">Consigue audios permanentes</p>
+            </div>
+            <div id="img4" class="cont-text">
+                <p id="title-text">Contrata</p>
+                <p id="body-text">Estos audios serán tuyos permanentemente y los puedes producir cuando lo desees</p>
+            </div>
+        </div>
+        <div class="message-cont" id="message-slider">
+            <h2 id="message-title">Sabías que...</h2>
+            <p id="message-body" class="fade-in-left"></p>
+        </div>
+    </div>
+
+    <div class="services-cont">
+        <h2 id="services-title">¿Qué puedes obtener?</h2>
+        <div class="services-imgs">
+            <div class="items" id="item1">
+                <img src="money.png" alt="Voz">
+                <p>+ Ventas</p>
+            </div>
+            <div class="items" id="item2">
+                <img src="recon.png" alt="Voz">
+                <p>Reconomiento</p>
+            </div>
+            <div class="items" id="item3">
+                <img src="posicio.png" alt="Voz">
+                <p>Posicionamiento</p>
+            </div>
+            <div class="items" id="item4">
+                <img src="voice-over.png" alt="Voz">
+                <p>+ Clientes</p>
+            </div>
+        </div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus molestiae porro veniam voluptatibus, provident, facilis sit quaerat delectus veritatis fugit autem, cum vel assumenda numquam deleniti sint qui odio! Eaque?
+        <h1 id="services-message">¿Estás listo para contratar un locutor?</h1>
+        <button id="services-register" onclick="register()">CREAR CUENTA</button>
+    </div>
+
+    <section class="testimony-cont">
+        <h1>Testimonios</h1>
+        <img class="fade-in-left" src="Testimonios/1.webp" id="testimony-image" alt="">
+    </section>
+
+    <div class="contract locutor">
+        <h1>Si eres locutor</h1>
+        <div class="contract-logo">
+            <h1 id="title1">i</h1>
+            <h1 id="title2">i</h1>
+            <img src="lucutor2.jpg" alt="locutor">
+        </div>
+        <p id="contract-message">Convierte <b>tu voz en ingresos</b> y trabaja con <b>marcas que necesitan tu talento.</b></p>
+        <ul class="list">
+            <li class="item" id="item1" style="margin-left: 70px;">Gana dinero promocionando negocios.</li>
+            <li class="item" id="item2" style="margin-left: 70px;">Sé la voz de promociones exitosas.</li>
+            <li class="item" id="item3" style="margin-left: 70px;">Aumenta tu exposición y clientes.</li>
+        </ul>
+        <button id="listen-voice" onclick="registerLoc()">¡Empieza a ganar con tu voz hoy!</button>
+    </div>
+
+    <footer>
+        <div class="social-media">
+            <img src="tiktok.png" alt="tiktok" id="icn1">
+            <img src="instagram.png" alt="instragram" id="icn2">
+            <img src="youtube.png" alt="youtube" id="icn3">
+            <img src="facebooki.png" alt="facebook" id="icn4">
+        </div>
+        Todos los derechos reservados
+    </footer>
+    <script>
+        function register(){
+            window.location.href = 'register.html';
+        }
+
+        function registerLoc(){
+            window.location.href = 'register-loc.html';
+        }
+
+        function listen(){
+            window.location.href = 'voices-cat.html';
+        }
+
+        const messages = [
+            "Los negocios que utilizan audios para promocionar sus productos logran captar más atención de los clientes.",
+            "Está demostrado que los anuncios en audio generan un mayor impacto en las decisiones de compra.",
+            "Promocionar tus ofertas con audios llamativos puede incrementar tus ventas significativamente.",
+            "Los clientes recuerdan mejor las marcas que utilizan audios atractivos para comunicarse con ellos.",
+            "Un buen audio promocional puede ser la diferencia entre captar clientes o perderlos ante la competencia."
+        ];
+
+        const messageBody = document.getElementById("message-body");
+
+        let currentIndexMessage = 0;
+        function updateMessage() {
+            messageBody.classList.remove("fade-in-left");
+
+            void messageBody.offsetWidth;
+
+            messageBody.textContent = messages[currentIndexMessage];
+
+            messageBody.classList.add("fade-in-left");
+
+            currentIndexMessage = (currentIndexMessage + 1) % messages.length;
+        }
+
+        updateMessage();
+        setInterval(updateMessage, 5000);
+
+        // Parte para el slider de imágenes
+        const images = [
+            "Testimonios/2.webp",
+            "Testimonios/3.webp",
+            "Testimonios/4.webp",
+            "Testimonios/5.webp"
+        ];
+
+        const testimonyImage = document.getElementById("testimony-image");
+
+        let currentIndexImage = 0;
+        function updateImage() {
+            testimonyImage.classList.remove("fade-in-left");
+
+            void testimonyImage.offsetWidth;
+
+            testimonyImage.src = images[currentIndexImage];
+
+            testimonyImage.classList.add("fade-in-left");
+
+            currentIndexImage = (currentIndexImage + 1) % images.length;
+        }
+
+        setInterval(updateImage, 5000);
+
+        
+    </script>
+</body>
+</html>

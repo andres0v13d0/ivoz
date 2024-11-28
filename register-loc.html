@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse | iivoz</title>
+    <style>
+        @font-face {
+            font-family: 'normal-font';
+            src: url(Ubuntu/Ubuntu-Regular.ttf);
+        }
+        @font-face {
+            font-family: 'logo-font';
+            src: url(EB_Garamond/EBGaramond-Italic.ttf) ;
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'normal-font';
+        }
+
+        .logo{
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            top: 0;
+        }
+
+        .logo img{
+            width: auto;
+            height: 100%;
+        }
+
+        .logo h1{
+            color: black;
+            margin-left: -17px;
+            font-family: 'logo-font';
+            font-size: 35px;
+        }
+
+        button{
+            cursor: pointer;
+        }
+
+        .cont-register{
+            display: flex;
+            flex-direction: column;
+            height: 80vh;
+        }
+
+        .logo-cont.register{
+            display: flex;
+            position: absolute;
+            z-index: -10;
+            width: 100vw;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .logo-cont h1{
+            font-family: 'logo-font', sans-serif;
+            font-weight: bold;
+            font-size: 650px;
+            color: white;
+        }
+
+        .logo-cont #text1{
+            -webkit-text-stroke: 1px rgb(0, 216, 0);
+            z-index: 1;
+        }
+
+        .logo-cont #text2{
+            -webkit-text-stroke: 1px rgb(62, 62, 62);
+            margin-left: -90px;
+            z-index: 0;
+        }
+
+        .cont-register #title-register{
+            margin-top: 100px;
+            margin-left: 50px;
+            margin-bottom: 50px;
+            font-size: 30px;
+            color: #3c3c3c;
+        }
+
+        .cont-register .data-enter{
+            height: 40vh;
+            margin-left: 50px;
+        }
+
+        .data-enter .input-data{
+            border-bottom: 2px solid #3c3c3c;
+            height: 60px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-right: 50px;
+            margin-bottom: 10px;
+        }
+
+        .input-data img{
+            height: 70%;
+        }
+
+        .input-data input{
+            margin-left: 10px;
+            width: 100%;
+            height: 95%;
+            font-size: 20px;
+            padding: 0;
+            border: none;
+            outline: none;
+        }
+
+        .input-data:focus-within{
+            border-bottom: 2px solid #00D800;
+        }
+
+        .cont-register #btn-register{
+            margin-left: 50px;
+            margin-right: 50px;
+            margin-top: 10px;
+            padding: 20px;
+            font-size: 25px;
+            background-color: #00D800;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            color: #3c3c3c;
+        }
+
+        .cont-register p{
+            color: #3c3c3c;;
+            font-size: 22px;
+            margin-top: 20px;
+            margin-left: 50px;
+        }
+
+        .cont-register a{
+            text-decoration: none;
+            color: #3c3c3c;
+            font-weight: bold;
+        }
+
+        .cont-register a:hover{
+            color:#00D800;
+        }
+
+    </style>
+
+</head>
+<body>
+    <section class="cont-register">
+        <div class="logo-cont register">
+            <h1 id="text1">i</h1>
+            <h1 id="text2">i</h1>
+        </div>
+        <h1 id="title-register">Únete como locutor</h1>
+        <div class="data-enter">
+            <div class="input-data name">
+                <img src="user.png" alt="name">
+                <input type="text" id="name" placeholder="Nombre">
+            </div>
+            <div class="input-data lastname">
+                <img src="user.png" alt="lastname">
+                <input type="text" id="lastname" placeholder="Apellido">
+            </div>
+            <div class="input-data email">
+                <img src="email.png" alt="email">
+                <input type="email" id="email" placeholder="Correo electrónico">
+            </div>
+            <div class="input-data password">
+                <img src="password.png" alt="password">
+                <input type="password" id="password" placeholder="Contraseña">
+            </div>
+            <div class="input-data r-password">
+                <img src="password.png" alt="r-password">
+                <input type="password" id="password" placeholder="Repita la contraseña">
+            </div>
+        </div>
+        <button id="btn-register" onclick="continuar()">Continuar</button>
+        <p>¿Ya tienes cuenta? <a href="login.html">Iniciar sesión</a></p>
+    </section>
+
+    <script>
+        function continuar(){
+            window.location.href = 'foto.html';
+        }
+    </script>
+</body>
+</html>
